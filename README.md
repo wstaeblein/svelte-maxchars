@@ -38,18 +38,20 @@ This is so simple that it doesn't need a NPM package. Just copy the file ``/src/
 
 The action can be passed an onject with configuration parameters. If it is not passed, defaults are assumed.
 
-| Parameter | Description | Default value |
-|-----------|-------------|---------------|
-| bkg | Background color of the bar's track | System color 'ButtonFace' |
-| color | Bar color | System color 'Highlight' |
-| height | Thickness of the bar in pixels | 3 |
-| class | a class name to be applied to the bar element | [EMPTY] |
-| length | The maximum characters allowed in the textbox | maxlength attribute (*) |
+| Parameter | Description | Type | Default value |
+|-----------|-------------|------|---------------|
+| bkg | Background color of the bar's track | Color name or code | System color 'ButtonFace' |
+| color | Bar color | Color name or code | System color 'Highlight' |
+| height | Thickness of the bar in pixels | Integer | 3 |
+| class | a class name to be applied to the bar element | string | [EMPTY] |
+| length | The maximum characters allowed in the textbox | Integer | maxlength attribute or 0 |
 
+### Observations
 
 - If no maxlength attribute exists and the length parameter is falsy, there will be no progress bar and text entry wont have any restriction.
 - If no maxlength attribute exists but a length parameter is set to a number, that number is the maximum characters allowed.
 - If both maxlength and length exists, length takes precedence.
+- If you programmatically add text to a textbox with this progressbar, you'll have to dispatch an input event straight after for it to be percieved. As far as I know there is no way around this. See App.svelte for a working example.
 
 
 ## Example
@@ -57,5 +59,6 @@ The action can be passed an onject with configuration parameters. If it is not p
 Download this code, extract it and run:
 
 ```
+npm i
 npm run dev
 ```

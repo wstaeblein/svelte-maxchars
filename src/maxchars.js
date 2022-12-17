@@ -10,7 +10,7 @@ export function maxchars(node, options) {
     }
     let opts = {...defaults, ...(options || {})}; 
     let width = node.offsetWidth;
-    let maxchars = +(opts.length || node.getAttribute('maxlength')); 
+    let maxchars = Math.abs(+(opts.length || node.getAttribute('maxlength'))); 
     let eventList = 'focus blur input';
     let slider = document.createElement('div');         // The outer bar
     let bar = document.createElement('div');            // The inner bar
