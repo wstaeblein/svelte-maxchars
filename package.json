@@ -1,8 +1,9 @@
 {
-  "name": "Maxchars",
+  "name": "maxchars",
   "version": "1.0.0",
   "private": true,
   "author": "Walter Staeblein",
+  "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
