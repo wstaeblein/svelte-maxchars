@@ -4,6 +4,8 @@ This action creates a progress bar below your textboxes or textareas to sinalize
 
 ![Example](public/sample.png)
 
+[CHECK OUT THE ONLINE DEMO](https://wstaeblein.github.io/svelte-maxchars)
+
 ```html
 <script>
     import { maxchars } from './maxchars.js';
@@ -62,3 +64,4 @@ Download this code, extract it and run:
 npm i
 npm run dev
 ```
+Or [click here](https://wstaeblein.github.io/svelte-maxchars) to play with it online 
