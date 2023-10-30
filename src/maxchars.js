@@ -10,7 +10,7 @@ export function maxchars(node, options) {
     }
     let opts = {...defaults, ...(options || {})}; 
     let width = node.offsetWidth;
-    let maxchars = Math.abs(+(opts.length || node.getAttribute('maxlength'))); 
+    let maxchars = Math.abs(+node.getAttribute('maxlength') || opts.length); 
     let eventList = 'focus blur input';
     let slider = document.createElement('div');         // The outer bar
     let bar = document.createElement('div');            // The inner bar
@@ -37,14 +37,14 @@ export function maxchars(node, options) {
         observer.observe(node);
     }
 
-    function handleEvents(event) {
+    function handleEvents(event) { 
         if (!maxchars) { return; }
-        let size = node.value.length; 
+        let size = node.value.length;
         if (size > maxchars) { 
             node.value = node.value.substr(0, maxchars);
             size = maxchars;
         }
-        let percent = Math.round((size * 100) / maxchars);
+        let percent = Math.min((size * 100) / maxchars, 100);
         bar.style.width = percent + '%';
     }
 

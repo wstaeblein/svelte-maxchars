@@ -1,13 +1,13 @@
 <script>
     import { maxchars } from './maxchars.js';
-    let inp;
-
+    let inp, tarea, inpVal, tareaVal;
     let optArea = {
         length: 300,
         class: 'countercls',
         height: 8,
         color: 'crimson'
     }
+
 
     function insertText() {
         inp.value = 'Lorem ipsum dolor sit amet';
@@ -33,17 +33,21 @@
     <br>
 
     <div>
-        <input type="text" bind:this={inp} maxlength="50" use:maxchars />
-        <br><br>
+        <div>
+            <input type="text" bind:this={inp} bind:value={inpVal} maxlength="50" use:maxchars />
+        </div>
+        
+        <div>{inpVal?.length || 0}/{inp ? inp.getAttribute('maxLength') : 0}</div><br>
         <div>
             <button id="instxt" on:click={insertText}>Insert Text</button>
         </div>
     </div>
-    <br><br>
+    <br>
     <div>With a few changes: Thicker line with a different color and a custom class</div>
     <br>    
     <div>
-        <textarea rows="8" use:maxchars={optArea} maxlength="250"></textarea>
+        <textarea rows="8" bind:this={tarea} bind:value={tareaVal} use:maxchars={optArea} maxlength="250"></textarea>
+        <div>{tareaVal?.length || 0}/{tarea ? tarea.getAttribute('maxLength') : 0}</div><br>
     </div>
     
 </main>
@@ -68,7 +72,7 @@
         text-align: center;
     }
     input, textarea {
-        max-width: 400px;
+        max-width: 500px;
         width: 100%;
         margin: 0;
         border: 1px solid #aaa;
