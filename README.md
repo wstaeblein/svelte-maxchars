@@ -1,6 +1,6 @@
 # Svelte MaxChars Action
 
-This action creates a progress bar below your textboxes or textareas to sinalize the remaining space. It has a few settings to customize the bar and its behaviour.
+This action creates a progress bar below your textboxes or textareas to indicate the remaining space. It has a few settings to customize the bar and its behaviour.
 
 ![Example](public/sample.png)
 
